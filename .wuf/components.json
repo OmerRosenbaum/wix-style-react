@@ -463,5 +463,8 @@
   },
   "FontUpgrade": {
     "path": "src/FontUpgrade"
+  },
+  "CustomModal": {
+    "path": "src/CustomModal"
   }
 }

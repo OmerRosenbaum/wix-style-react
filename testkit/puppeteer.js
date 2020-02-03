@@ -147,6 +147,7 @@ export const variableInputTestkitFactory = puppeteerUniTestkitFactoryCreator(loa
 export const imageTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Image/Image.uni.driver')));
 export const sidePanelTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidePanel/SidePanel.uni.driver')));
 export const fontUpgradeTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/FontUpgrade/FontUpgrade.uni.driver')));
+export const customModalTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CustomModal/CustomModal.uni.driver')));
 export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver')));
 export const cardHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
 export const sideMenuTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.uni.driver')));

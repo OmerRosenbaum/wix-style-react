@@ -166,6 +166,7 @@ export const variableInputTestkitFactory = uniTestkitFactoryCreator(load(require
 export const imageTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Image/Image.uni.driver')));
 export const sidePanelTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidePanel/SidePanel.uni.driver')));
 export const fontUpgradeTestkitFactory = uniTestkitFactoryCreator(load(require('../src/FontUpgrade/FontUpgrade.uni.driver')));
+export const customModalTestkitFactory = uniTestkitFactoryCreator(load(require('../src/CustomModal/CustomModal.uni.driver')));
 export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));
