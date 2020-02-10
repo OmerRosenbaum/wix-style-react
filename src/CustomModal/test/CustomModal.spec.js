@@ -35,8 +35,11 @@ describe('CustomModal', () => {
     expect(await driver.hasClass(expectedClass)).toBe(true);
   });
   it('should receive styles from props', async () => {
-    const { driver } = render(<CustomModal removeContentPadding />);
+    const { driver } = render(
+      <CustomModal removeContentPadding withBackground />,
+    );
     expect(await driver.hasClass(styles.removeContentPadding)).toBe(true);
+    expect(await driver.hasClass(styles.withBackground)).toBe(true);
   });
 
   it('should render title & subtitle', async () => {

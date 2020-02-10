@@ -23,7 +23,7 @@ const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
-  storyName: '<%= ComponentName %>',
+  storyName: storySettings.category,
 
   component: <%= ComponentName %>,
   componentPath: '..',

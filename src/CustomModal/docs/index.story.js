@@ -17,19 +17,21 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
+import SimpleExample from '!raw-loader!./examples/SimpleExample';
 import CustomModal from '..';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
-  storyName: 'CustomModal',
+  storyName: storySettings.storyName,
 
   component: CustomModal,
   componentPath: '..',
 
   componentProps: {
-    buttonText: 'Hello World!',
+    primaryButtonText: 'Confirm',
+    secondaryButtonText: 'Cancel',
   },
 
   exampleProps: {
@@ -41,7 +43,7 @@ export default {
     header({
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/CustomModal/',
-      component: <CustomModal buttonText="Click me!" />,
+      component: <CustomModal primaryButtonText="Click me!" />,
     }),
 
     tabs([
@@ -52,7 +54,8 @@ export default {
             description({
               title: 'Description',
               text:
-                'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+                //This line here should briefly describe component in just a sentence or two. It should be short and easy to read.
+                "Work in progress - please don't use this component yet.",
             }),
           ]),
 
@@ -74,14 +77,15 @@ export default {
 
             code({
               compact: true,
-              source: '<CustomModal buttonText="Hello World!"/>',
+              source: SimpleExample,
             }),
           ]),
 
           code({
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
-            source: '<CustomModal buttonText="Hello World!"/>',
+            source:
+              '<CustomModal title="Title" subtitle="subtitle" sideActions={ (<Checkbox>Check</Checkbox>)} primaryButtonText="Hello World!" />;',
           }),
         ],
       }),

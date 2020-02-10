@@ -31,8 +31,5 @@ export const customModalDriverFactory = base => {
     /** Get the secondary button's text */
     getSecondaryButtonText: async () =>
       base.$(`[data-hook="${dataHooks.secondaryButton}"]`).text(),
-
-    getSideActions: async () =>
-      base.$(`[data-hook="${dataHooks.sideActions}"]`).innerHtml(),
   };
 };

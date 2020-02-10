@@ -1,4 +1,5 @@
 export const dataHooks = {
+  customModal: 'customModal',
   primaryButton: 'customModal-primary-button',
   secondaryButton: 'customModal-secondary-button',
   closeButton: 'customModal-close-button',

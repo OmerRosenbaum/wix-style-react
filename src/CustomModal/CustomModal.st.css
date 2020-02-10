@@ -1,48 +1,115 @@
-:import {
-  -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: G30,R30;
+:vars {
+  modalPadding: 30px;
+  modalBoxPadding: 48px;
 }
 
-.root {
-  -st-states: odd, even;
-  text-align: center;
-}
 
-.root:even .number {
-  background: value(G30);
-}
-
-.root:odd .number {
-  background: value(R30);
-}
-
-.button {
+.customModal {
+  background-color: white;
+  position: relative;
+  max-height: calc(100% - (value(modalBoxPadding) * 2) );
+  max-width: calc(100% - (value(modalBoxPadding) * 2) );
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  border-radius: 8px;
 }
 
-.buttons {
 
+:import {
+  -st-from: "../Foundation/stylable/default-scroll-bar.st.css";
+  -st-named: defaultScrollBar;
 }
 
-.contentWrapper{
-
+.contentWrapper {
+  height: 100%;
+  overflow-y: auto;
+  -st-mixin: defaultScrollBar;
 }
-.removeContentPadding {
 
+
+
+.contentWrapper:not(.removeContentPadding) {
+  padding: 0 value(modalPadding);
 }
 
 .actions {
 
 }
-.sideActions {
 
-}
 
+
+/** Footer - start **/
 .footer {
-
+  padding: value(modalPadding);
+  display: flex;
+  align-items: center;
 }
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.buttons > :first-of-type:not(:last-of-type) {
+  margin-right: 12px;
+}
+
+.sideActions {
+  margin-right: 12px;
+}
+
+
+
+/* rtl */
+:global(.rtl) .buttons {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+:global(.rtl) .buttons > :first-of-type:not(:last-of-type) {
+  margin-left: 12px;
+  margin-right: 0;
+}
+
+:global(.rtl) .sideActions {
+  margin-left: 12px;
+  margin-right: 0;
+}
+
+/** Footer - end **/
+
+
+/** Header - start **/
+.header
+{
+  padding: 24px value(modalPadding);
+}
+.title{
+  /*display: inline-block;*/
+  /*word-break: break-word;*/
+}
+
+/** Header - end **/
+
+
+
+
+
+
+
+
 
 .closeButton {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
 
+.withBackground {
+
+}
+
+
+.footer_divider {
+  display: none;
 }
