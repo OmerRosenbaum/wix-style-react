@@ -26,6 +26,7 @@
   -st-mixin: defaultScrollBar;
 }
 
+.removeContentPadding {
 
 
 .contentWrapper:not(.removeContentPadding) {
@@ -78,6 +79,12 @@
 
 /** Footer - end **/
 
+.footnote {
+  padding: value(modalPadding);
+  display: flex;
+  align-items: center;
+}
+
 
 /** Header - start **/
 .header
@@ -105,9 +112,6 @@
   top: 12px;
 }
 
-.withBackground {
-
-}
 
 
 .footer_divider {

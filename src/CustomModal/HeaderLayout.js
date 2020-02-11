@@ -21,7 +21,7 @@ const HeaderLayout = ({ title, subtitle }) => {
 };
 
 HeaderLayout.defaultProps = {
-  title: 'blue',
+  title: '',
   subtitle: '',
 };
 

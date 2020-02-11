@@ -35,11 +35,8 @@ describe('CustomModal', () => {
     expect(await driver.hasClass(expectedClass)).toBe(true);
   });
   it('should receive styles from props', async () => {
-    const { driver } = render(
-      <CustomModal removeContentPadding withBackground />,
-    );
+    const { driver } = render(<CustomModal removeContentPadding />);
     expect(await driver.hasClass(styles.removeContentPadding)).toBe(true);
-    expect(await driver.hasClass(styles.withBackground)).toBe(true);
   });
 
   it('should render title & subtitle', async () => {
@@ -102,11 +99,11 @@ describe('CustomModal', () => {
 
     expect(await driver.childExists(selector)).toBe(true);
   });
-  it(`should render 'footer'`, async () => {
-    const dataHook = 'footer';
+  it(`should render 'footnote'`, async () => {
+    const dataHook = 'footnote';
     const selector = '[data-hook="' + dataHook + '"]';
-    const footer = <div data-hook={dataHook}>Footer here</div>;
-    const { driver } = render(<CustomModal footer={footer} />);
+    const footnote = <div data-hook={dataHook}>Footnote here</div>;
+    const { driver } = render(<CustomModal footnote={footnote} />);
 
     expect(await driver.childExists(selector)).toBe(true);
   });
