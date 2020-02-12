@@ -182,12 +182,10 @@ require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 
 // 9. Modals
 require('../src/MessageBox/docs');
+require('../src/CustomModal/docs/index.story'); // 9.3 Custom Modal
 require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');
 require('../src/Deprecated/SideMenu/docs');
 require('../src/Deprecated/SideMenu/docs/SideMenu');
-
-// TODO: move to correct position
-require('../src/CustomModal/docs/index.story');

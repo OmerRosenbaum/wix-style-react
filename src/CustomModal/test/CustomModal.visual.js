@@ -6,6 +6,7 @@ import { dataHooks } from '../constants';
 import Box from '../../Box';
 import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 import { customModalPrivateDriverFactory } from './CustomModal.private.uni.driver';
+import Checkbox from '../../Checkbox';
 
 const LONG_CONTENT = (
   <Text>
@@ -52,40 +53,72 @@ const commonProps = {
   secondaryButtonText: 'Cancel',
   title: 'Title',
   subtitle: 'Subtitle',
+  children: SHORT_CONTENT,
 };
 
 const tests = [
   {
-    describe: 'sanity', // prop name (e.g. size)
+    describe: 'sanity',
     its: [
       {
-        it: 'default', //prop variation (e.g. small)
+        it: 'default',
         props: {
           ...commonProps,
-          children: SHORT_CONTENT,
         },
       },
     ],
   },
   {
-    describe: 'title', // prop name (e.g. size)
+    describe: 'scroll',
     its: [
       {
-        it: 'title with short text', //prop variation (e.g. small)
-        props: {
-          ...commonProps,
-          children: SHORT_CONTENT,
-        },
-      },
-      {
-        it: 'title with long text should be sticky', //prop variation (e.g. small)
+        it: 'long text should be scrollable. title and footer should be sticky',
         props: {
           ...commonProps,
           children: LONG_CONTENT,
         },
-        componentDidMount: () => {
-          const { driver } = createDriver(dataHooks.customModal);
-          driver.scrollToBottom();
+      },
+    ],
+  },
+  {
+    describe: 'footer',
+    its: [
+      {
+        it: 'empty footer',
+        props: {
+          title: 'Title',
+          children: SHORT_CONTENT,
+        },
+      },
+      {
+        it: 'with sideActions',
+        props: {
+          ...commonProps,
+          sideActions: <Checkbox>Check</Checkbox>,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'footnote',
+    its: [
+      {
+        it: 'basic',
+        props: {
+          ...commonProps,
+          footnote: <span>Footnote text goes here</span>,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'removeContentPadding',
+    its: [
+      {
+        it: 'true',
+        props: {
+          ...commonProps,
+          removeContentPadding: true,
         },
       },
     ],
@@ -106,7 +139,7 @@ const InteractiveCustomModalLayout = ({ componentDidMount, ...props }) => {
     componentDidMount && componentDidMount();
   }, [componentDidMount]);
 
-  return <CustomModal {...commonProps} {...props} />;
+  return <CustomModal {...props} />;
 };
 
 tests.forEach(({ describe, its }) => {
@@ -114,8 +147,8 @@ tests.forEach(({ describe, its }) => {
     storiesOf(`CustomModal${describe ? '/' + describe : ''}`, module).add(
       it,
       () => (
-        <Box maxHeight={'800px'} maxWidth={'1000px'}>
-          <InteractiveCustomModalLayout {...commonProps} {...props} />
+        <Box maxHeight={'600px'} maxWidth={'1000px'}>
+          <InteractiveCustomModalLayout {...props} />
         </Box>
       ),
     );

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import HeaderLayout from './HeaderLayout';
 import styles from './CustomModal.st.css';
 import { dataHooks } from './constants';
 import CloseButton from '../CloseButton';
 import Divider from '../Divider';
 import Button from '../Button';
+import Heading from '../Heading/Heading';
+import Text from '../Text/Text';
 
 /** CustomModal */
 class CustomModal extends React.PureComponent {
@@ -45,13 +46,25 @@ class CustomModal extends React.PureComponent {
 
   static defaultProps = {
     dataHook: dataHooks.customModal,
-    primaryButtonText: 'Confirm',
+    primaryButtonText: '',
     primaryButtonProps: { dataHook: dataHooks.primaryButton },
-    secondaryButtonText: 'Cancel',
+    secondaryButtonText: '',
     secondaryButtonProps: { dataHook: dataHooks.secondaryButton },
     title: '',
     subtitle: '',
     removeContentPadding: false,
+  };
+
+  _renderHeaderLayout = () => {
+    const { title, subtitle } = this.props;
+    return (
+      <div className={styles.header}>
+        <Heading dataHook={dataHooks.title} appearance={'H3'}>
+          {title}
+        </Heading>
+        {subtitle && <Text dataHook={dataHooks.subtitle}>{subtitle}</Text>}
+      </div>
+    );
   };
 
   _renderFooterLayout = () => {
@@ -65,7 +78,7 @@ class CustomModal extends React.PureComponent {
       primaryButtonProps,
     } = this.props;
     return (
-      <div>
+      <>
         <Divider className={styles.footer_divider} />
         <div className={styles.footer}>
           {sideActions && (
@@ -95,7 +108,7 @@ class CustomModal extends React.PureComponent {
             )}
           </div>
         </div>
-      </div>
+      </>
     );
   };
 
@@ -105,7 +118,6 @@ class CustomModal extends React.PureComponent {
       primaryButtonText,
       secondaryButtonText,
       title,
-      subtitle,
       removeContentPadding,
       children,
       sideActions,
@@ -113,26 +125,27 @@ class CustomModal extends React.PureComponent {
       onClose,
     } = this.props;
 
-    const classes =
-      'customModal' + (removeContentPadding ? ' removeContentPadding' : '');
     const hasFooter = sideActions || primaryButtonText || secondaryButtonText;
 
     return (
-      <div {...styles(classes, {}, this.props)} data-hook={dataHook}>
-        {title && <HeaderLayout title={title} subtitle={subtitle} />}
+      <div
+        {...styles('root', { removeContentPadding }, this.props)}
+        data-hook={dataHook}
+      >
+        {title && this._renderHeaderLayout()}
         {children && <div className={styles.contentWrapper}>{children}</div>}
         {hasFooter && this._renderFooterLayout()}
         {footnote && (
-          <div>
+          <>
             <Divider />
             <div className={styles.footnote}>{footnote}</div>
-          </div>
+          </>
         )}
         <CloseButton
           dataHook={dataHooks.closeButton}
           className={styles.closeButton}
           onClick={onClose}
-          // size="large"
+          size="large"
           skin="dark"
         />
       </div>

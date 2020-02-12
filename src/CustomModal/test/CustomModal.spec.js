@@ -4,7 +4,6 @@ import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 import CustomModal from '../CustomModal';
 import { customModalPrivateDriverFactory } from './CustomModal.private.uni.driver';
 import { dataHooks } from '../constants';
-import styles from '../CustomModal.st.css';
 import Checkbox from '../../Checkbox';
 
 describe('CustomModal', () => {
@@ -15,7 +14,12 @@ describe('CustomModal', () => {
   });
 
   it('should render', async () => {
-    const { driver } = render(<CustomModal />);
+    const { driver } = render(
+      <CustomModal
+        primaryButtonText={'Confirm'}
+        secondaryButtonText={'Cancel'}
+      />,
+    );
 
     expect(await driver.exists()).toBe(true);
     expect(await driver.getPrimaryButtonText()).toEqual('Confirm');
@@ -34,10 +38,6 @@ describe('CustomModal', () => {
 
     expect(await driver.hasClass(expectedClass)).toBe(true);
   });
-  it('should receive styles from props', async () => {
-    const { driver } = render(<CustomModal removeContentPadding />);
-    expect(await driver.hasClass(styles.removeContentPadding)).toBe(true);
-  });
 
   it('should render title & subtitle', async () => {
     const title = 'Modal Title';
@@ -51,6 +51,8 @@ describe('CustomModal', () => {
   });
   it('should click on the primary and secondary action buttons', async () => {
     const props = {
+      primaryButtonText: 'Confirm',
+      secondaryButtonText: 'Cancel',
       primaryButtonOnClick: jest.fn(),
       secondaryButtonOnClick: jest.fn(),
     };

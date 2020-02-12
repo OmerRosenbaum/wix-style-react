@@ -21,6 +21,12 @@ import SimpleExample from '!raw-loader!./examples/SimpleExample';
 import CustomModal from '..';
 
 const code = config => baseCode({ components: allComponents, ...config });
+const componentProps = {
+  title: 'Modal title',
+  children: 'Lorem ipsum',
+  primaryButtonText: 'Confirm',
+  secondaryButtonText: 'Cancel',
+};
 
 export default {
   category: storySettings.category,
@@ -29,21 +35,11 @@ export default {
   component: CustomModal,
   componentPath: '..',
 
-  componentProps: {
-    primaryButtonText: 'Confirm',
-    secondaryButtonText: 'Cancel',
-  },
-
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
-
   sections: [
     header({
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/CustomModal/',
-      component: <CustomModal primaryButtonText="Click me!" />,
+      component: <CustomModal {...componentProps} />,
     }),
 
     tabs([
@@ -85,7 +81,7 @@ export default {
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
             source:
-              '<CustomModal title="Title" subtitle="subtitle" sideActions={ (<Checkbox>Check</Checkbox>)} primaryButtonText="Hello World!" />;',
+              '<CustomModal  title="Title" subtitle="subtitle" sideActions={ (<Checkbox>Check</Checkbox>)} primaryButtonText="Hello World!" footnote="footnote text" />;',
           }),
         ],
       }),
