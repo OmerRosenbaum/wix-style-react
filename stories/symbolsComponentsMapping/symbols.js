@@ -116,6 +116,7 @@ export const notificationsSymbols = {
 export const modalsSymbols = {
   alert: '9.1 Alert',
   content: '9.2 Content',
+  // TODO - ask @nitay about this part!!!
   marketing: '9.3 Marketing',
   preview: '9.4 Preview',
   mobile: '9.5 Mobile Modal',

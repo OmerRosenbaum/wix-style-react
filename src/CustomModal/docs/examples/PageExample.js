@@ -31,13 +31,13 @@ class PageExample extends React.Component {
               onClose={this.closeModal}
             >
               <Page upgrade height="40vh" >
-                <Page.Header/>
+                {/*<Padding 30>*/}
                 <Page.Content>
                   <Container>
                     <Row>
                       <Card>
                         <Card.Header title="Card" />
-                        <Card.Content>Some content</Card.Content>
+                        <Card.Content>Lorem ipsum dolor</Card.Content>
                       </Card>
                     </Row>
                   </Container>

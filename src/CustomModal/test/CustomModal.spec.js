@@ -3,7 +3,6 @@ import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
 import CustomModal from '../CustomModal';
 import { customModalPrivateDriverFactory } from './CustomModal.private.uni.driver';
-import { dataHooks } from '../constants';
 import Checkbox from '../../Checkbox';
 
 describe('CustomModal', () => {
@@ -39,29 +38,40 @@ describe('CustomModal', () => {
     expect(await driver.hasClass(expectedClass)).toBe(true);
   });
 
-  it('should render title & subtitle', async () => {
+  it('should render title', async () => {
     const title = 'Modal Title';
+    const { driver } = render(<CustomModal title={title} />);
+
+    expect(await driver.getTitleText()).toEqual(title);
+  });
+
+  it('should render subtitle', async () => {
     const subtitle = 'Subtitle here';
+    const title = 'Modal Title';
     const { driver } = render(
       <CustomModal title={title} subtitle={subtitle} />,
     );
 
-    expect(await driver.getTitleText()).toEqual(title);
     expect(await driver.getSubtitleText()).toEqual(subtitle);
   });
-  it('should click on the primary and secondary action buttons', async () => {
+
+  it('should click on the primary action button', async () => {
     const props = {
       primaryButtonText: 'Confirm',
-      secondaryButtonText: 'Cancel',
       primaryButtonOnClick: jest.fn(),
+    };
+    const { driver } = render(<CustomModal {...props} />);
+    await driver.clickPrimaryButton();
+    expect(props.primaryButtonOnClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should click on the secondary action button', async () => {
+    const props = {
+      secondaryButtonText: 'Cancel',
       secondaryButtonOnClick: jest.fn(),
     };
     const { driver } = render(<CustomModal {...props} />);
-
-    await driver.clickPrimaryButton();
     await driver.clickSecondaryButton();
-
-    expect(props.primaryButtonOnClick).toHaveBeenCalledTimes(1);
     expect(props.secondaryButtonOnClick).toHaveBeenCalledTimes(1);
   });
   it('should click on the close button', async () => {
@@ -75,17 +85,15 @@ describe('CustomModal', () => {
     expect(props.onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('should allow changing the buttons text', async () => {
-    const { driver } = render(
-      <CustomModal
-        primaryButtonText="Press me"
-        primaryButtonProps={{ dataHook: dataHooks.primaryButton }}
-        secondaryButtonText="Don't press me"
-        secondaryButtonProps={{ dataHook: dataHooks.secondaryButton }}
-      />,
-    );
-
+  it('should allow changing the primary button text', async () => {
+    const { driver } = render(<CustomModal primaryButtonText="Press me" />);
     expect(await driver.getPrimaryButtonText()).toEqual('Press me');
+  });
+
+  it('should allow changing the secondary button text', async () => {
+    const { driver } = render(
+      <CustomModal secondaryButtonText="Don't press me" />,
+    );
     expect(await driver.getSecondaryButtonText()).toEqual("Don't press me");
   });
 
@@ -101,6 +109,7 @@ describe('CustomModal', () => {
 
     expect(await driver.childExists(selector)).toBe(true);
   });
+
   it(`should render 'footnote'`, async () => {
     const dataHook = 'footnote';
     const selector = '[data-hook="' + dataHook + '"]';

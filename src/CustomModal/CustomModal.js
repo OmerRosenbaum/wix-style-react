@@ -41,7 +41,7 @@ class CustomModal extends React.PureComponent {
     /** side actions node, to be rendered as the first element on the same row as the action buttons */
     sideActions: PropTypes.node,
     /** the children / content of the modal */
-    children: PropTypes.any,
+    children: PropTypes.node,
   };
 
   static defaultProps = {

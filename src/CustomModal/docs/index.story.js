@@ -25,27 +25,30 @@ import NoFooterExample from '!raw-loader!./examples/NoFooterExample';
 import PageExample from '!raw-loader!./examples/PageExample';
 import TableExmaple from '!raw-loader!./examples/TableExample';
 import CustomModal from '..';
+import Checkbox from '../../Checkbox';
 
 const code = config => baseCode({ components: allComponents, ...config });
-const componentProps = {
-  title: 'Modal title',
-  children: 'Lorem ipsum',
-  primaryButtonText: 'Confirm',
-  secondaryButtonText: 'Cancel',
-};
 
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
 
+  componentProps: {
+    title: 'Modal title',
+    children: 'Lorem ipsum',
+    primaryButtonText: 'Confirm',
+    secondaryButtonText: 'Cancel',
+    sideActions: <Checkbox>Check</Checkbox>,
+    footnote: 'footnote text',
+  },
   component: CustomModal,
   componentPath: '..',
 
   sections: [
     header({
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new/choose',
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/CustomModal/',
-      component: <CustomModal {...componentProps} />,
     }),
 
     tabs([
