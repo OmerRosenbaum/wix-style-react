@@ -19,10 +19,7 @@ $sliderMarkTextSize: 14px;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-with-marks) {
-  height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding}
-              + #{$sliderMarginBottom} + #{$sliderMarkLine} + #{$sliderMarkTextMarginTop} +
-  #{$sliderMarkTextSize}
-  );
+  height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding} + #{$sliderMarginBottom} + #{$sliderMarkLine} + #{$sliderMarkTextMarginTop} +  #{$sliderMarkTextSize});
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-rail) {
