@@ -51,11 +51,6 @@
 
 
 /** Footer - start **/
-.footer {
-  padding: value(modalPadding);
-  display: flex;
-  align-items: center;
-}
 .buttons {
   display: flex;
   align-items: center;

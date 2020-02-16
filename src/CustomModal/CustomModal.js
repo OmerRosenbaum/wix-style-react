@@ -8,6 +8,7 @@ import Divider from '../Divider';
 import Button from '../Button';
 import Heading from '../Heading/Heading';
 import Text from '../Text/Text';
+import Box from '../Box';
 
 /** CustomModal */
 class CustomModal extends React.PureComponent {
@@ -18,22 +19,24 @@ class CustomModal extends React.PureComponent {
     className: PropTypes.string,
     /** data hook for testing */
     dataHook: PropTypes.string,
+    /** The modal's title */
+    title: PropTypes.string,
+    /** The modal's subtitle */
+    subtitle: PropTypes.string,
     /** When not provided, the primary action button will not be rendered */
     primaryButtonText: PropTypes.string,
     /** Passed to the primary button as props without any filter / mutation */
     primaryButtonProps: PropTypes.object,
-    /** callback to be called when the primary button is clicked */
+    /** callback for when the primary button is clicked */
     primaryButtonOnClick: PropTypes.func,
     /** When not provided, the secondary action button will not be rendered */
     secondaryButtonText: PropTypes.string,
     /** Passed to the secondary button as props without any filter / mutation */
     secondaryButtonProps: PropTypes.object,
-    /** callback to be called when the secondary button is clicked */
+    /** callback for when the secondary button is clicked */
     secondaryButtonOnClick: PropTypes.func,
-    /** The modal's title */
-    title: PropTypes.string,
-    /** The modal's subtitle */
-    subtitle: PropTypes.string,
+    /** callback for when the close button is clicked */
+    onCloseButtonClick: PropTypes.func,
     /** When set to true, there will be no content padding */
     removeContentPadding: PropTypes.bool,
     /** a footnote node, to be rendered at the very bottom of the modal */
@@ -41,15 +44,12 @@ class CustomModal extends React.PureComponent {
     /** side actions node, to be rendered as the first element on the same row as the action buttons */
     sideActions: PropTypes.node,
     /** the children / content of the modal */
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {
-    dataHook: dataHooks.customModal,
     primaryButtonText: '',
-    primaryButtonProps: { dataHook: dataHooks.primaryButton },
     secondaryButtonText: '',
-    secondaryButtonProps: { dataHook: dataHooks.secondaryButton },
     title: '',
     subtitle: '',
     removeContentPadding: false,
@@ -80,14 +80,13 @@ class CustomModal extends React.PureComponent {
     return (
       <>
         <Divider className={styles.footerDivider} />
-        <div className={styles.footer}>
+        <Box padding={5} verticalAlign="middle">
           {sideActions && (
             <div className={styles.sideActions}>{sideActions}</div>
           )}
           <div className={styles.buttons}>
             {secondaryButtonText && (
               <Button
-                dataHook={dataHooks.secondaryButton}
                 onClick={secondaryButtonOnClick}
                 priority="secondary"
                 size="small"
@@ -98,7 +97,6 @@ class CustomModal extends React.PureComponent {
             )}
             {primaryButtonText && (
               <Button
-                dataHook={dataHooks.primaryButton}
                 onClick={primaryButtonOnClick}
                 size="small"
                 {...primaryButtonProps}
@@ -107,7 +105,7 @@ class CustomModal extends React.PureComponent {
               </Button>
             )}
           </div>
-        </div>
+        </Box>
       </>
     );
   };
@@ -122,7 +120,7 @@ class CustomModal extends React.PureComponent {
       children,
       sideActions,
       footnote,
-      onClose,
+      onCloseButtonClick,
     } = this.props;
 
     const hasFooter = sideActions || primaryButtonText || secondaryButtonText;
@@ -144,7 +142,7 @@ class CustomModal extends React.PureComponent {
         <CloseButton
           dataHook={dataHooks.closeButton}
           className={styles.closeButton}
-          onClick={onClose}
+          onClick={onCloseButtonClick}
           size="large"
           skin="dark"
         />
