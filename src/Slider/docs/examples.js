@@ -36,7 +36,7 @@ class SliderWithState extends React.Component {
 
   render() {
     const { value } = this.state;
-    return (<Slider onChange={this.change} min={1} max={10} displayMarks={false} value={value} />);
+    return (<Slider onChange={this.change} min={1} max={10} value={value} />);
   }
 }
 `;
