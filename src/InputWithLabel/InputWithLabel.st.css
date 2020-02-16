@@ -46,10 +46,16 @@
   display: flex;
   align-items: center;
   line-height: value(status-message-height) !important;
+  align-items: flex-start;
+  margin-top: 2px;
 }
 
 .statusMessageIcon {
   margin-right: 5px;
   display: flex;
   margin-left: -2px;
+}
+
+.errorMessageContent {
+  line-height: 18px;
 }

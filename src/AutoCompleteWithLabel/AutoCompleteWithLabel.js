@@ -169,7 +169,12 @@ class AutoCompleteWithLabel extends React.PureComponent {
             <span className={styles.statusMessageIcon}>
               <StatusAlertSmall />
             </span>
-            <span data-hook={dataHooks.errorMessage}>{statusMessage}</span>
+            <span
+              data-hook={dataHooks.errorMessage}
+              className={styles.errorMessageContent}
+            >
+              {statusMessage}
+            </span>
           </Text>
         )}
       </div>
