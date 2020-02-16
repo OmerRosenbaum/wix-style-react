@@ -45,7 +45,6 @@ $sliderMarkTextSize: 14px;
   top: calc(#{$sliderRailHeight} + #{$sliderMarkLine} + #{$sliderPadding} + #{$sliderMarginBottom});
   left: 0;
   width: 100%;
-  font-size: 12px;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-mark-text) {
