@@ -5,7 +5,7 @@ import Button from 'wix-style-react/Button';
 import Box from 'wix-style-react/Box';
 import Checkbox from "../../../Checkbox";
 
-class SimpleExample extends React.Component {
+class ModalExample extends React.Component {
   state = {
     isModalOpened: false,
   };

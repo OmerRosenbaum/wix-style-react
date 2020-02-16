@@ -79,7 +79,7 @@ class CustomModal extends React.PureComponent {
     } = this.props;
     return (
       <>
-        <Divider className={styles.footer_divider} />
+        <Divider className={styles.footerDivider} />
         <div className={styles.footer}>
           {sideActions && (
             <div className={styles.sideActions}>{sideActions}</div>

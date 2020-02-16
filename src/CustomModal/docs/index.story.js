@@ -17,7 +17,13 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
-import SimpleExample from '!raw-loader!./examples/SimpleExample';
+import BasicExample from '!raw-loader!./examples/BasicExample';
+import FootnoteExample from '!raw-loader!./examples/FootnoteExample';
+import ModalExample from '!raw-loader!./examples/ModalExample';
+import NoHeaderExample from '!raw-loader!./examples/NoHeaderExample';
+import NoFooterExample from '!raw-loader!./examples/NoFooterExample';
+import PageExample from '!raw-loader!./examples/PageExample';
+import TableExmaple from '!raw-loader!./examples/TableExample';
 import CustomModal from '..';
 
 const code = config => baseCode({ components: allComponents, ...config });
@@ -56,9 +62,7 @@ export default {
           ]),
 
           columns([
-            importExample(
-              "import CustomModal from 'wix-style-react/CustomModal';",
-            ),
+            importExample("import { CustomModal } from 'wix-style-react';"),
           ]),
 
           divider(),
@@ -67,13 +71,84 @@ export default {
 
           columns([
             description({
-              title: 'Simple Usage',
-              text: 'A simple example with compact preview',
+              title: 'Basic Usage',
+              text: 'A Basic example with compact preview',
             }),
 
             code({
               compact: true,
-              source: SimpleExample,
+              source: BasicExample,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'Footnote Example',
+              text:
+                'Same as the basic example, with the addition of a footnote',
+            }),
+
+            code({
+              compact: true,
+              source: FootnoteExample,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Opening in a modal',
+              text:
+                'Opening the CustomModal is done with the Modal component, usually in the regular size of full-screen',
+            }),
+
+            code({
+              compact: true,
+              source: ModalExample,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'Table example - No content padding',
+              text:
+                'A simple example with a table as the content and without content padding',
+            }),
+
+            code({
+              compact: true,
+              source: TableExmaple,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'No Header',
+              text: 'A simple example without a header',
+            }),
+
+            code({
+              compact: true,
+              source: NoHeaderExample,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'No Footer',
+              text:
+                'A simple example without a footer (without actions), and without ',
+            }),
+
+            code({
+              compact: true,
+              source: NoFooterExample,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'Custom Page Example',
+              text: 'Open a custom page in a modal',
+            }),
+
+            code({
+              compact: true,
+              source: PageExample,
             }),
           ]),
 
@@ -81,7 +156,7 @@ export default {
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
             source:
-              '<CustomModal  title="Title" subtitle="subtitle" sideActions={ (<Checkbox>Check</Checkbox>)} primaryButtonText="Hello World!" footnote="footnote text" />;',
+              '<CustomModal  title="Title" subtitle="subtitle" sideActions={ (<Checkbox>Check</Checkbox>)}  footnote="footnote text" primaryButtonText="Save" secondaryButtonText="Cancel">Content</CustomModal>;',
           }),
         ],
       }),
