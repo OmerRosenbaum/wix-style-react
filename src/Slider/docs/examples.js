@@ -90,5 +90,4 @@ class SliderWithState extends React.Component {
     return (<Slider marks={marks} onChange={this.change} min={-10} max={100} value={value} />);
   }
 }
-
 `;

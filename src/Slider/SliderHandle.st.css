@@ -24,7 +24,6 @@
   -st-states: disabled;
   position: absolute;
   margin-left: calc(value(rootSize)/ -2);
-  margin-top: calc((value(rootSize) - value(railHeight)) / -2);
   width: value(rootSize);
   height:  value(rootSize);
   box-sizing:border-box;
@@ -44,7 +43,7 @@
   width: value(rootSizeWithState);
   height: value(rootSizeWithState);
   margin-left: calc(value(rootSizeWithState)/ -2);
-  margin-top: calc((value(rootSizeWithState) - value(railHeight)) / -2);
+  margin-top: -3px;
 }
 
 .root:not(:active):not(:hover):not(:disabled):focus-visible {
@@ -66,7 +65,7 @@
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 8px;
   padding: 10px 15px;
-  top: -43px;
+  top: -44px;
   box-shadow: value(shadow30);
   user-select: none;
   transform: translateX(-50%);

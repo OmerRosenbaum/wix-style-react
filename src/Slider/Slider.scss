@@ -12,15 +12,13 @@ $sliderMarkTextSize: 14px;
 :global(.wix-style-react-slider) :global(.rc-slider) {
   position: relative;
   height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding});
-  padding: $sliderPadding 0;
-  margin-top: $sliderMarginTop;
   width: 100%;
   touch-action: none;
   box-sizing: border-box;
+  margin: $sliderMarginTop 0 $sliderMarginBottom 0;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-with-marks) {
-  padding: $sliderPadding 0 0 0;
   height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding}
               + #{$sliderMarginBottom} + #{$sliderMarkLine} + #{$sliderMarkTextMarginTop} +
   #{$sliderMarkTextSize}
@@ -33,6 +31,7 @@ $sliderMarkTextSize: 14px;
   background-color: $B40;
   height: $sliderRailHeight;
   border-radius: 10px;
+  margin: $sliderPadding 0;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-track) {
@@ -41,6 +40,7 @@ $sliderMarkTextSize: 14px;
   background-color: $B10;
   height: $sliderRailHeight;
   border-radius: 10px;
+  margin: $sliderPadding 0;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-mark) {
@@ -69,6 +69,7 @@ $sliderMarkTextSize: 14px;
   width: 100%;
   height: $sliderRailHeight;
   background: transparent;
+  margin: $sliderPadding 0;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-disabled .rc-slider-rail) {
