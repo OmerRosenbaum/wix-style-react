@@ -3,7 +3,6 @@ import React from 'react';
 import Modal from 'wix-style-react/Modal';
 import Button from 'wix-style-react/Button';
 import Box from 'wix-style-react/Box';
-import Checkbox from "../../../Checkbox";
 
 class PageExample extends React.Component {
   state = {
@@ -28,19 +27,30 @@ class PageExample extends React.Component {
               primaryButtonOnClick={this.closeModal}
               secondaryButtonText="Cancel"
               secondaryButtonOnClick={this.closeModal}
-              onClose={this.closeModal}
+              onCloseButtonClick={this.closeModal}
             >
-              <Page upgrade height="40vh" >
-                {/*<Padding 30>*/}
+              <Page upgrade height="40vh" sidePadding={30}>
                 <Page.Content>
-                  <Container>
-                    <Row>
-                      <Card>
-                        <Card.Header title="Card" />
-                        <Card.Content>Lorem ipsum dolor</Card.Content>
-                      </Card>
-                    </Row>
-                  </Container>
+                  <Box marginTop={5}>
+                    <Container>
+                      <Row>
+                        <Col>
+                          <Card>
+                            <Card.Header title="Card 2" />
+                            <Card.Content>Lorem ipsum dolor</Card.Content>
+                          </Card>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>
+                          <Card>
+                            <Card.Header title="Card 2" />
+                            <Card.Content>Lorem ipsum dolor</Card.Content>
+                          </Card>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </Box>
                 </Page.Content>
               </Page>
             </CustomModal>

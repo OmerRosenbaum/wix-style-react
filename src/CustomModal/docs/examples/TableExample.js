@@ -28,7 +28,7 @@ class TableExample extends React.Component {
           primaryButtonOnClick={this.closeModal}
           secondaryButtonText="Cancel"
           secondaryButtonOnClick={this.closeModal}
-          onClose={this.closeModal}
+          onCloseButtonClick={this.closeModal}
           title="Create New Coupon"
           subtitle="Make customers come back to your store with coupons"
           sideActions={(<Checkbox>I agree to Wix terms of use</Checkbox>)}
