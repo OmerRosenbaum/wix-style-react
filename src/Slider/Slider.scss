@@ -7,7 +7,7 @@ $sliderMarginTop: 9px;
 $sliderMarginBottom: 6px;
 $sliderMarkLine: 6px;
 $sliderMarkTextMarginTop: 12px;
-$sliderMarkTextSize: 14px;
+$sliderMarkTextSize: 18px;
 
 :global(.wix-style-react-slider) :global(.rc-slider) {
   position: relative;
@@ -20,6 +20,7 @@ $sliderMarkTextSize: 14px;
 
 :global(.wix-style-react-slider) :global(.rc-slider-with-marks) {
   height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding} + #{$sliderMarginBottom} + #{$sliderMarkLine} + #{$sliderMarkTextMarginTop} +  #{$sliderMarkTextSize});
+  margin-bottom: 0;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-rail) {
