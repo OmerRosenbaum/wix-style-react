@@ -291,7 +291,9 @@ export default {
   },
 
   CustomModal: {
-    children: <div />,
+    props: {
+      children: <div />,
+    },
   },
 
   ModalSelectorLayout: {
