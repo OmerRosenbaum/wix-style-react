@@ -296,12 +296,6 @@ export default {
     },
   },
 
-  GoogleAddressInputWithLabel: {
-    props: {
-      children: <GoogleAddressInput Client={GmapsTestClient} />,
-    },
-  },
-
   ColorInput: {
     props: {
       value: '#FFFFFF',

@@ -7,5 +7,6 @@
 - `<InputAreaWithLabelComposite/>` - Use `<FormField/>` instead.
 - `<MultiSelectComposite/>` - Use `<FormField/>` instead.
 - `<FieldWithSelectionComposite/>` - Use `<FormField/>` instead.
+- `<GoogleAddressInputWithLabel/>` - Use `<FormField/>` instead.
 
 ### Change:

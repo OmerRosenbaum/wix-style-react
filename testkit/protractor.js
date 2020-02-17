@@ -85,7 +85,6 @@ export const floatingHelperTestkitFactory = protractorTestkitFactoryCreator(load
 export const floatingNotificationTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/FloatingNotification/FloatingNotification.uni.driver')));
 export const formFieldTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/FormField/FormField.protractor.driver')));
 export const genericModalLayoutTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/GenericModalLayout/GenericModalLayout.protractor.driver')));
-export const googleAddressWithInputTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/GoogleAddressInputWithLabel/GoogleAddressInputWithLabel.protractor.driver')));
 export const googlePreviewTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/GooglePreview/GooglePreview.uni.driver')));
 export const headingTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Heading/Heading.protractor.driver')));
 export const highlighterTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Highlighter/Highlighter.protractor.driver')));

@@ -140,12 +140,6 @@
   "GoogleAddressInput": {
     "path": "src/GoogleAddressInput"
   },
-  "GoogleAddressInputWithLabel": {
-    "path": "src/GoogleAddressInputWithLabel",
-    "missingFiles": [
-      "docs"
-    ]
-  },
   "GooglePreview": {
     "path": "src/GooglePreview"
   },

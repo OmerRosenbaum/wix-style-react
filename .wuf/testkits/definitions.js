@@ -78,19 +78,6 @@ module.exports = {
     noTestkit: true,
   },
 
-  GoogleAddressInputWithLabel: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    skipSanityTest: true,
-    // TODO: testkit of this component is not following convention.
-    // It is used only internally and before automated export was not exported manually
-
-    // the name of export has a typo, it's different than component name
-    protractorTestkitExportName: 'googleAddressWithInputTestkitFactory',
-    noPuppeteerTestkit: true,
-  },
-
   Grid: { skipSanityTest: true, noTestkit: true },
   Layout: { skipSanityTest: true, noTestkit: true },
   MessageBox: { skipSanityTest: true, noTestkit: true },

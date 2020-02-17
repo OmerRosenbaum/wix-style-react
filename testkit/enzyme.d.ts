@@ -73,7 +73,6 @@ declare namespace EnzymeTestkit {
   export const floatingNotificationTestkitFactory: any;
   export const formFieldTestkitFactory: any;
   export const genericModalLayoutTestkitFactory: any;
-  export const googleAddressInputWithLabelTestkitFactory: any;
   export const googlePreviewTestkitFactory: any;
   export const headingTestkitFactory: any;
   export const highlighterTestkitFactory: any;
