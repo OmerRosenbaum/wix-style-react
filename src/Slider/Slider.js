@@ -183,7 +183,7 @@ Slider.propTypes = {
     PropTypes.number,
   ]),
 
-  /** Make it disabled */
+  /** Make it disabled  */
   disabled: PropTypes.bool,
 };
 
