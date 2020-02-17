@@ -101,6 +101,11 @@ export default {
               source: examples.plainSliderMarks,
             },
             {
+              title: 'Custom Marks',
+              text: 'Slider custom marks',
+              source: examples.customMarks,
+            },
+            {
               title: 'Multi Value',
               text: 'Usually used for user to select the range.',
               source: examples.rangeSlider,
@@ -117,9 +122,9 @@ export default {
               source: examples.states,
             },
             {
-              title: 'Custom Marks',
-              text: 'Slider custom marks',
-              source: examples.customMarks,
+              title: 'Start Point',
+              text: `Slider supports having a Start Point`,
+              source: examples.startPoint,
             },
           ].map(example),
         ],

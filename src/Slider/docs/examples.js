@@ -150,3 +150,16 @@ class SliderWithState extends React.Component {
 }
 
 `;
+
+export const startPoint = `
+class SliderWithState extends React.Component {
+  state = { value: 4 };
+
+  change = value => this.setState({ value })
+
+  render() {
+    const { value } = this.state;
+    return (<Slider startPoint={4} onChange={this.change} min={1} max={7} value={value} displayMarks={false} />);
+  }
+}
+`;

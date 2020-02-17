@@ -100,6 +100,7 @@ export default class Slider extends Component {
       allowCross,
       value,
       displayMarks,
+      startPoint,
       dataHook,
       id,
       ...rest
@@ -116,6 +117,7 @@ export default class Slider extends Component {
     ) : (
       <Slide
         {...rest}
+        startPoint={startPoint}
         handle={this._renderHandle}
         marks={displayMarks ? this._getMarks() : {}}
         value={Array.isArray(value) ? value[0] : value}
@@ -185,6 +187,9 @@ Slider.propTypes = {
 
   /** Make it disabled */
   disabled: PropTypes.bool,
+
+  /** Track starts from this value. If undefined, min is used. */
+  startPoint: PropTypes.number,
 };
 
 Slider.defaultProps = {
@@ -199,4 +204,5 @@ Slider.defaultProps = {
   marks: {},
   rtl: false,
   disabled: false,
+  startPoint: undefined,
 };
