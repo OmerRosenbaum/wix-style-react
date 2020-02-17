@@ -204,5 +204,4 @@ Slider.defaultProps = {
   marks: {},
   rtl: false,
   disabled: false,
-  startPoint: undefined,
 };

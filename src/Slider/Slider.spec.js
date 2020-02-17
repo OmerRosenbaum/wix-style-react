@@ -31,20 +31,6 @@ describe('Slider', () => {
       expect(await driver.isDotSelected(3)).toBe(true);
     });
 
-    it('should render slider with multi-range', async () => {
-      const onChange = jest.fn(value => this.setState({ value }));
-      const props = { value: [3, 5, 7], min: 1, max: 10, onChange };
-
-      const { driver } = render(<Slider {...props} />);
-
-      expect(await driver.numOfSliderDots()).toBe(10);
-      expect(await driver.numOfSliderHandles()).toBe(3);
-
-      props.value.forEach(async selectedValue => {
-        expect(await driver.isDotSelected(selectedValue)).toBe(true);
-      });
-    });
-
     it('should show correct value on hover', async () => {
       const onChange = jest.fn(value => this.setState({ value }));
       const props = { value: [3, 5, 7], min: 1, max: 10, onChange };
@@ -76,7 +62,7 @@ describe('Slider', () => {
 
     it('should display a disabled slider', async () => {
       const onChange = jest.fn(value => this.setState({ value }));
-      const props = { value: [3], onChange, disabled: true };
+      const props = { value: 3, onChange, disabled: true };
 
       const { driver } = render(<Slider {...props} />);
 
@@ -146,6 +132,20 @@ describe('Slider', () => {
     });
 
     describe(`Range mode`, () => {
+      it('should render slider with multi-range', async () => {
+        const onChange = jest.fn(value => this.setState({ value }));
+        const props = { value: [3, 5, 7], min: 1, max: 10, onChange };
+
+        const { driver } = render(<Slider {...props} />);
+
+        expect(await driver.numOfSliderDots()).toBe(10);
+        expect(await driver.numOfSliderHandles()).toBe(3);
+
+        props.value.forEach(async selectedValue => {
+          expect(await driver.isDotSelected(selectedValue)).toBe(true);
+        });
+      });
+
       it('should be enabled when array is given to value prop', async () => {
         const onChange = jest.fn();
         const props = { value: [2, 4, 6], displayTooltip: false, onChange };
