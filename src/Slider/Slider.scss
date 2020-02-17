@@ -17,11 +17,33 @@ $sliderMarkTextSize: 18px;
   box-sizing: border-box;
   margin: $sliderMarginTop 0 $sliderMarginBottom 0;
   cursor: pointer;
+
+  // extending clickable area
+  &::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+  }
 }
+
+
 
 :global(.wix-style-react-slider) :global(.rc-slider-with-marks) {
   height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding} + #{$sliderMarginBottom} + #{$sliderMarkLine} + #{$sliderMarkTextMarginTop} +  #{$sliderMarkTextSize});
   margin-bottom: 0;
+
+  // extending clickable area
+  &::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-rail) {
