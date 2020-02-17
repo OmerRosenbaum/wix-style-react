@@ -132,9 +132,10 @@ describe('Slider', () => {
     });
 
     describe(`Range mode`, () => {
+      const multiRangeValue = [3, 5, 7];
       it('should render slider with multi-range', async () => {
         const onChange = jest.fn(value => this.setState({ value }));
-        const props = { value: [3, 5, 7], min: 1, max: 10, onChange };
+        const props = { value: multiRangeValue, min: 1, max: 10, onChange };
 
         const { driver } = render(<Slider {...props} />);
 
@@ -148,9 +149,13 @@ describe('Slider', () => {
 
       it('should be enabled when array is given to value prop', async () => {
         const onChange = jest.fn();
-        const props = { value: [2, 4, 6], displayTooltip: false, onChange };
+        const props = {
+          value: multiRangeValue,
+          displayTooltip: false,
+          onChange,
+        };
         const { driver } = render(<Slider {...props} />);
-        expect(await driver.numOfSliderHandles()).toBe(3);
+        expect(await driver.numOfSliderHandles()).toBe(props.value.length);
       });
     });
 
