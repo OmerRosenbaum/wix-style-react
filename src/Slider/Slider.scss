@@ -16,6 +16,7 @@ $sliderMarkTextSize: 18px;
   touch-action: none;
   box-sizing: border-box;
   margin: $sliderMarginTop 0 $sliderMarginBottom 0;
+  cursor: pointer;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-with-marks) {
