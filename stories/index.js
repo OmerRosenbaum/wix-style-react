@@ -85,6 +85,7 @@ require('../src/MediaOverlay/docs/index.story');
 require('../src/MessageBox/FunctionalLayout/docs/index.story');
 require('../src/MobilePreviewWidget/docs/index.story');
 require('../src/Modal/docs/index.story');
+require('../src/CustomModal/docs/index.story');
 require('../src/ModalMobileLayout/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
 require('../src/ModalSelectorLayout/docs/index.story');
@@ -181,9 +182,9 @@ require('./Tooltip/index.story'); // 7.1 Tooltip
 require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 
 // 9. Modals
-require('../src/MessageBox/docs');
-require('../src/CustomModal/docs/index.story'); // 9.3 Custom Modal
+require('../src/CustomModal/docs/design.story'); // 9.3 Custom Modal
 require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
+require('../src/MessageBox/docs');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');

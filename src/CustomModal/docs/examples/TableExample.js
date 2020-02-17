@@ -1,7 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 import Checkbox from "../../../Checkbox";
+import Box from "../../../Box";
 import Table from "../../../Table";
+import CustomModal from "../../../CustomModal";
 
 class TableExample extends React.Component {
   render() {
@@ -57,4 +59,5 @@ class TableExample extends React.Component {
   }
 }
 
+export default () => <TableExample />;
 

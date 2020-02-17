@@ -12,9 +12,10 @@ import {
   playground,
   api,
   testkit,
+  table,
 } from 'wix-storybook-utils/Sections';
 
-import { storySettings } from '../test/storySettings';
+import { storySettings } from '../test/designStorySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
 import BasicExample from '!raw-loader!./examples/BasicExample';
@@ -24,6 +25,8 @@ import PageExample from '!raw-loader!./examples/PageExample';
 import TableExmaple from '!raw-loader!./examples/TableExample';
 import CustomModal from '..';
 import Checkbox from '../../Checkbox';
+import { Category } from '../../../stories/storiesHierarchy';
+import LinkTo from '@storybook/addon-links/react';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
@@ -48,6 +51,20 @@ export default {
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/CustomModal/',
     }),
+    columns([
+      table({
+        title: 'Included Components',
+        rows: [
+          [
+            <LinkTo
+              kind={Category.WIP}
+              story="CustomModal"
+            >{`<CustomModal/>`}</LinkTo>,
+            'A custom modal component',
+          ],
+        ],
+      }),
+    ]),
 
     tabs([
       tab({
@@ -56,9 +73,14 @@ export default {
           columns([
             description({
               title: 'Description',
-              text:
-                //This line here should briefly describe component in just a sentence or two. It should be short and easy to read.
-                "Work in progress - please don't use this component yet.",
+              text: [
+                'Use this component together with ',
+                <LinkTo
+                  kind={Category.COMPONENTS}
+                  story="Modal"
+                >{`<Modal />`}</LinkTo>,
+                ' to display content in this layout. You may place a title and/or a footer with actions relevant to the displayed content.',
+              ],
             }),
           ]),
 

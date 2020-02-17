@@ -10,10 +10,10 @@ export const storySettings = {
     kind,
     story: '9.2 Destructive Alert',
   },
-  custom: {
-    kind,
-    story: '9.3 Custom Modal',
-  },
+  // custom: {
+  //   kind,
+  //   story: '9.3 Deprecated Custom Modal',
+  // },
   announcement: {
     kind,
     story: '9.4 Announcement',
