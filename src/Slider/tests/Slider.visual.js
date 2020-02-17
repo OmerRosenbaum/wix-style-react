@@ -53,6 +53,10 @@ const tests = [
           displayMarks: true,
         },
       },
+      {
+        it: 'start point',
+        props: { startPoint: 4 },
+      },
     ],
   },
 ];
