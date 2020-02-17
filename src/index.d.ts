@@ -55,7 +55,6 @@ export const Notification: any;
 export { default as Breadcrumbs, BreadcrumbsProps } from './Breadcrumbs';
 export const ImageViewer: any;
 export const PopoverMenu: any;
-export const FullTextView: any;
 export const PopoverMenuItem: any;
 export { default as Badge, BadgeProps } from './Badge';
 export { default as BadgeSelect, BadgeSelectProps } from './BadgeSelect';
