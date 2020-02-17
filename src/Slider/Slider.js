@@ -196,7 +196,7 @@ Slider.defaultProps = {
   min: 1,
   max: 20,
   step: 1,
-  value: [2, 7],
+  value: 3,
   allowCross: true,
   id: generateID(),
   displayTooltip: true,
@@ -204,4 +204,5 @@ Slider.defaultProps = {
   marks: {},
   rtl: false,
   disabled: false,
+  startPoint: undefined,
 };
