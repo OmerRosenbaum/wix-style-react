@@ -36,7 +36,6 @@ declare namespace VanillaTestkit {
   export const accordionTestkitFactory: any;
   export const addItemTestkitFactory: any;
   export const autoCompleteTestkitFactory: any;
-  export const autoCompleteCompositeTestkitFactory: any;
   export const avatarTestkitFactory: VanillaUniTestkitFactory<AvatarDriver>;
   export const badgeTestkitFactory: any;
   export const badgeSelectTestkitFactory: any;
@@ -88,7 +87,6 @@ declare namespace VanillaTestkit {
   export const modalSelectorLayoutTestkitFactory: any;
   export const multiSelectTestkitFactory: any;
   export const multiSelectCheckboxTestkitFactory: any;
-  export const multiSelectCompositeTestkitFactory: any;
   export const nestableListTestkitFactory: any;
   export const noBorderInputTestkitFactory: any;
   export const notificationTestkitFactory: any;
@@ -162,7 +160,6 @@ declare namespace VanillaTestkit {
   export const draggableTestkitFactory: any;
   export const editableRowTestkitFactory: any;
   export const fieldLabelAttributesTestkitFactory: any;
-  export const fieldWithSelectionCompositeTestkitFactory: any;
   export const radioButtonTestkitFactory: any;
   export const messageBoxMarketerialLayoutTestkitFactory: any;
   export const messageBoxFunctionalLayoutTestkitFactory: any;

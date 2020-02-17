@@ -40,7 +40,6 @@ declare namespace EnzymeTestkit {
   export const accordionTestkitFactory: any;
   export const addItemTestkitFactory: any;
   export const autoCompleteTestkitFactory: any;
-  export const autoCompleteCompositeTestkitFactory: any;
   export const avatarTestkitFactory: EnzymeUniTestkitFactory<AvatarDriver>;
   export const badgeTestkitFactory: EnzymeTestkitFactory<BadgeDriver>;
   export const badgeSelectTestkitFactory: EnzymeTestkitFactory<BadgeSelectDriver>;
@@ -92,7 +91,6 @@ declare namespace EnzymeTestkit {
   export const modalSelectorLayoutTestkitFactory: any;
   export const multiSelectTestkitFactory: any;
   export const multiSelectCheckboxTestkitFactory: any;
-  export const multiSelectCompositeTestkitFactory: any;
   export const nestableListTestkitFactory: any;
   export const noBorderInputTestkitFactory: any;
   export const notificationTestkitFactory: any;
@@ -166,7 +164,6 @@ declare namespace EnzymeTestkit {
   export const draggableTestkitFactory: any;
   export const editableRowTestkitFactory: any;
   export const fieldLabelAttributesTestkitFactory: any;
-  export const fieldWithSelectionCompositeTestkitFactory: any;
   export const radioButtonTestkitFactory: any;
   export const messageBoxMarketerialLayoutTestkitFactory: any;
   export const messageBoxFunctionalLayoutTestkitFactory: any;

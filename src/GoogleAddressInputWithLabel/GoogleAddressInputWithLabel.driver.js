@@ -1,10 +1,10 @@
-import inputAreaWithLabelCompositeDriverFactory from '../Composite/InputAreaWithLabelComposite/InputAreaWithLabelComposite.driver';
+import formFieldDriverFactory from '../FormField/FormField.driver';
 
 const googleAddressInputWithLabelDriverFactory = ({ element }) => {
   const input = element.childNodes[1];
 
   return {
-    ...inputAreaWithLabelCompositeDriverFactory({ element }),
+    ...formFieldDriverFactory({ element }),
     getInput: () => input,
     hasInput: () => input.childNodes[0].tagName.toLowerCase() === 'input',
   };

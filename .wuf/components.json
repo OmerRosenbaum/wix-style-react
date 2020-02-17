@@ -8,12 +8,6 @@
   "AutoComplete": {
     "path": "src/AutoComplete"
   },
-  "AutoCompleteComposite": {
-    "path": "src/AutoCompleteComposite",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
-  },
   "Avatar": {
     "path": "src/Avatar"
   },
@@ -214,12 +208,6 @@
   },
   "MultiSelectCheckbox": {
     "path": "src/MultiSelectCheckbox"
-  },
-  "MultiSelectComposite": {
-    "path": "src/MultiSelectComposite",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
   },
   "NestableList": {
     "path": "src/NestableList",

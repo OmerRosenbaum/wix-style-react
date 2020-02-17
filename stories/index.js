@@ -11,7 +11,6 @@ require('./Playground/Playground');
 require('../src/Accordion/docs/index.story');
 require('../src/AddItem/docs/index.story');
 require('../src/AutoComplete/docs/index.story');
-require('../src/AutoCompleteComposite/docs');
 require('../src/AutoCompleteWithLabel/docs/index.story');
 require('../src/Avatar/docs/index.story');
 require('../src/Badge/docs/index.story');
@@ -89,7 +88,6 @@ require('../src/ModalPreviewLayout/docs/index.story');
 require('../src/ModalSelectorLayout/docs/index.story');
 require('../src/MultiSelect/docs/index.story');
 require('../src/MultiSelectCheckbox/docs/index.story');
-require('../src/MultiSelectComposite/docs');
 require('../src/NoBorderInput/docs/index.story');
 require('../src/Notification/docs/index.story');
 require('../src/NumberInput/docs/index.story');
@@ -184,6 +182,5 @@ require('../src/MessageBox/docs');
 require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 
 // DEPRECATED
-require('./FieldWithSelectionComposite');
 require('../src/Deprecated/SideMenu/docs');
 require('../src/Deprecated/SideMenu/docs/SideMenu');

@@ -1,7 +1,7 @@
-import inputAreaWithLabelCompositeDriverFactory from '../Composite/InputAreaWithLabelComposite/InputAreaWithLabelComposite.protractor.driver';
+import formFieldDriverFactory from '../FormField/FormField.protractor.driver';
 
 const textFieldDriverFactory = component => ({
-  ...inputAreaWithLabelCompositeDriverFactory(component),
+  ...formFieldDriverFactory(component),
   getInput: () => component.find('input'),
 });
 

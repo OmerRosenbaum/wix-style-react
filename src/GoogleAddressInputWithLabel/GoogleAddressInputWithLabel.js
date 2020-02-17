@@ -2,12 +2,10 @@ import React from 'react';
 import * as Composite from '../Composite';
 import Label from '../Label';
 import GoogleAddressInput from '../GoogleAddressInput';
-import InputAreaWithLabelComposite from '../Composite/InputAreaWithLabelComposite/InputAreaWithLabelComposite';
+import FormField from '../FormField';
 
 const GoogleAddressInputWithLabel = ({ children, ...props }) => (
-  <InputAreaWithLabelComposite {...props}>
-    {children}
-  </InputAreaWithLabelComposite>
+  <FormField {...props}>{children}</FormField>
 );
 
 GoogleAddressInputWithLabel.propTypes = {
