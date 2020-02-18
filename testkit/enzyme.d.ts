@@ -161,7 +161,7 @@ declare namespace EnzymeTestkit {
   export const imageTestkitFactory: EnzymeUniTestkitFactory<ImageDriver>;
   export const sidePanelTestkitFactory: EnzymeUniTestkitFactory<SidePanelDriver>;
   export const fontUpgradeTestkitFactory: any;
-  export const customModalTestkitFactory: any;
+  export const customModalTestkitFactory: EnzymeUniTestkitFactory<CustomModalDriver>;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;
