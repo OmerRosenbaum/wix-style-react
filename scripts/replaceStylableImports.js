@@ -9,11 +9,11 @@ const STYLABLE_ES_PATTERN = '/**/*.es.st.css';
 
 const PATHS_TO_CHANGE = [
   {
-    regexp: /wix-ui-core\/index\.st\.css/g,
+    regexp: /wix-ui-core\/index\.st\.css/,
     changeTo: 'wix-ui-core/index.es.st.css',
   },
   {
-    regexp: /wix-ui-core\/hocs\.st\.css/g,
+    regexp: /wix-ui-core\/hocs\.st\.css/,
     changeTo: 'wix-ui-core/hocs.es.st.css',
   },
 ];
@@ -45,13 +45,11 @@ module.exports = () => {
 
           let results = content;
 
-          const changes = PATHS_TO_CHANGE.find(
-            ({ regexp }) => !!regexp.test(results),
+          const changes = PATHS_TO_CHANGE.find(({ regexp }) =>
+            regexp.test(results),
           );
 
-          const errors = WRONG_PATHS.find(
-            ({ regexp }) => !!regexp.test(results),
-          );
+          const errors = WRONG_PATHS.find(({ regexp }) => regexp.test(results));
 
           if (!changes && !errors) {
             resolve();
@@ -59,10 +57,15 @@ module.exports = () => {
           }
 
           if (changes) {
-            PATHS_TO_CHANGE.forEach(
-              ({ regexp, changeTo }) =>
-                (results = results.replace(regexp, changeTo)),
-            );
+            results = results
+              .replace(
+                /wix-ui-core\/index\.st\.css/g,
+                'wix-ui-core/index.es.st.css',
+              )
+              .replace(
+                /wix-ui-core\/hocs\.st\.css/g,
+                'wix-ui-core/hocs.es.st.css',
+              );
           }
 
           if (errors) {
