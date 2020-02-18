@@ -7,6 +7,28 @@ const targetDir = path.resolve(__dirname, '..', 'dist/es/src');
 const STYLABLE_PATTERN = '/**/*.st.css';
 const STYLABLE_ES_PATTERN = '/**/*.es.st.css';
 
+const PATHS_TO_CHANGE = [
+  {
+    regexp: /wix-ui-core\/index\.st\.css/g,
+    changeTo: 'wix-ui-core/index.es.st.css',
+  },
+  {
+    regexp: /wix-ui-core\/hocs\.st\.css/g,
+    changeTo: 'wix-ui-core/hocs.es.st.css',
+  },
+];
+
+const WRONG_PATHS = [
+  {
+    regexp: /wix-ui-core\/dist\/src\/hocs\/.*\/[A-Za-z]*\.st\.css/,
+    correct: 'hocs.st.css',
+  },
+  {
+    regexp: /wix-ui-core\/dist\/src\/components\/.*\/[A-Za-z]*\.st\.css/,
+    correct: 'index.st.css',
+  },
+];
+
 module.exports = () => {
   const stylableFiles = glob.sync(targetDir + STYLABLE_PATTERN, {
     ignore: [targetDir + STYLABLE_ES_PATTERN],
@@ -23,29 +45,28 @@ module.exports = () => {
 
           let results = content;
 
-          results = results
-            .replace(
-              /wix-ui-core\/index\.st\.css/g,
-              'wix-ui-core/index.es.st.css',
-            )
-            .replace(
-              /wix-ui-core\/hocs\.st\.css/g,
-              'wix-ui-core/hocs.es.st.css',
+          const changes = PATHS_TO_CHANGE.find(
+            ({ regexp }) => !!regexp.test(results),
+          );
+
+          const errors = WRONG_PATHS.find(
+            ({ regexp }) => !!regexp.test(results),
+          );
+
+          if (!changes && !errors) {
+            resolve();
+            return;
+          }
+
+          if (changes) {
+            PATHS_TO_CHANGE.forEach(
+              ({ regexp, changeTo }) =>
+                (results = results.replace(regexp, changeTo)),
             );
+          }
 
-          const wrongPaths = [
-            {
-              regexp: /wix-ui-core\/dist\/src\/hocs\/.*\/[A-Za-z]*\.st\.css/,
-              correct: 'hocs.st.css',
-            },
-            {
-              regexp: /wix-ui-core\/dist\/src\/components\/.*\/[A-Za-z]*\.st\.css/,
-              correct: 'index.st.css',
-            },
-          ];
-
-          wrongPaths.forEach(({ regexp, correct }) => {
-            if (regexp.test(results)) {
+          if (errors) {
+            WRONG_PATHS.forEach(({ regexp, correct }) => {
               const message = [
                 'This stylesheet',
                 filepath,
@@ -58,8 +79,8 @@ module.exports = () => {
                 '',
               ];
               throw new Error(message.join(' '));
-            }
-          });
+            });
+          }
 
           fs.writeFile(filepath, results, function(err) {
             if (err) {
