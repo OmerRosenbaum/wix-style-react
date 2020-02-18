@@ -34,8 +34,19 @@
   outline: none;
 }
 
+/* extending clickable area */
+.root::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  left: -6px;
+  right: -6px;
+}
+
 .root:disabled {
   background-color: value(D50);
+  cursor: default;
 }
 
 .root:not(:disabled):hover,

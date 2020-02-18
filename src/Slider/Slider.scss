@@ -29,8 +29,6 @@ $sliderMarkTextSize: 18px;
   }
 }
 
-
-
 :global(.wix-style-react-slider) :global(.rc-slider-with-marks) {
   height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding} + #{$sliderMarginBottom} + #{$sliderMarkLine} + #{$sliderMarkTextMarginTop} +  #{$sliderMarkTextSize});
   margin-bottom: 0;
