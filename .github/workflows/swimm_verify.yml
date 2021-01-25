@@ -1,0 +1,29 @@
+name: Swimm
+
+on: pull_request
+
+jobs:
+  Verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: git configure
+        shell: bash
+        run: git config user.name temp && git config user.email temp@swimm.io
+      - name: download Swimm
+        shell: bash
+        run: curl -s https://api.github.com/repos/swimmio/SwimmReleases/releases/latest | grep 'browser_download_url.*swimm-cli' | cut -d '"' -f 4 | wget -O swimm_cli -qi -
+      - name: Chmod swimm
+        shell: bash
+        run: chmod +x swimm_cli
+      - name: swimm version
+        shell: bash
+        run: node swimm_cli --version
+      - name: verify
+        shell: bash
+        run: node swimm_cli verify
